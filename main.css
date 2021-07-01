@@ -1,0 +1,222 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap');
+
+
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+body {
+	background-color: #fff;
+	font-family: 'Red Hat Display', sans-serif;
+	font-size: 13pt;
+	color: #696969;
+	font-weight: 300;
+	line-height: 2.25em;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+	a:hover {
+		text-decoration: underline;
+	}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #000;
+	font-weight: 400;
+}
+
+
+h1 {
+	font-size: 50px;
+}
+h2 {
+	font-size: 24px;
+	/* text-align: center; */
+}
+
+/* Logo */
+#logo {
+	display: inline-block;
+	vertical-align:middle;
+}
+
+	#logo h1 {
+		background: #fff;
+		color: #000;
+		font-family: 'Red Hat Display', serif;
+		font-weight: 400;
+		font-size: 18px;
+		display: inline-block;
+		padding-bottom: 10px;
+	}
+
+/* Header */
+
+#header {
+	align-items: center;
+	background-color: white;
+	display: flex;
+	height: 60px;
+	position:relative;
+	box-shadow: 0 2px 5px -5px gray;
+	width: auto;
+	text-align: center;
+	font-size:18px;
+	
+}
+
+/* Nav */
+
+#nav {
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-size: 14px;
+}
+
+	#nav ul {
+		list-style: none;
+		padding-left: 0;
+	}
+
+		#nav ul li {
+			float: left;
+			padding-left: 1.5em;
+		}
+
+			#nav ul li a, #nav ul li span {
+
+				font-weight: 500;
+				letter-spacing: 0.025em;
+				color: #094175;
+				text-decoration: none;
+				border-radius: 6px;
+				padding: 0.5em 1em 0.5em 1em;
+			}
+
+/* Welcome Box*/
+#welcome {
+	text-align: center;
+	vertical-align: middle;
+	position: relative;
+	padding-top:80px;
+	height:400px;
+}
+
+
+#welcome-image {
+	float:left;
+	width: 400px;
+}
+
+#welcome-text {
+	position: relative;
+	text-align: center;
+	vertical-align: middle;
+	width: auto;
+	padding-bottom:50px;
+}
+
+@media screen and (max-width: 1026px) {
+	#welcome-image {
+		display: none;
+	}
+}
+
+#template-button {
+	color:#fff;
+	position:relative;
+	display: inline-block;
+	width: 200px;
+	height: 50px;
+	background-color: #FD7D54;
+	border-radius: 6px;
+	padding-top:10px;
+}
+
+/* Why Section */
+#why-section {
+	height: 525px;
+	padding: 30px 20px 30px 20px;
+	background-color: #FEECCA;
+	text-align: left;
+	vertical-align: middle;
+	position: relative;
+}
+
+#why-inner-box {
+	height: 470px;
+	padding: 20px 20px 20px 30px;
+	background-color: #fff;
+	position:relative;
+	border-radius: 49px;
+}
+
+#why-picture {
+	position:absolute;
+	z-index: 9;
+	
+}
+
+/* How Section */
+#how-section {
+	height: 550px;
+	background-color: #FFF;
+	text-align: left;
+	padding-top: 86px;
+	vertical-align: middle;
+	position: relative;
+}
+
+#how-inner-box1 {
+	height: 450px;
+	padding: 20px 20px 20px 30px;
+	background-color: #71BBFF;
+	position:relative;
+}
+
+#how-inner-box2 {
+	height: 400px;
+	padding: 20px 20px 20px 30px;
+	background-color: #fff;
+	position:relative;
+	border-radius: 49px;
+}
+
+
+/* About Us*/
+.photo {
+	display: inline-block;
+	position:relative;
+	padding: 0 50px 0 50px;
+}
+
+.about-section {
+	display: inline-block;
+	position:relative;
+	width: 700px;
+	padding-left:50px;
+	padding-right:50px;
+	text-align: left;
+	vertical-align: top;
+	line-height: normal;
+}
+
+
+#about-us {
+	background-image: url(images/blue-blob.png);
+	background-repeat: no-repeat;
+	background-size:700px
+}
+
+#who-title {
+	padding: 150px 0 75px 150px;
+}
