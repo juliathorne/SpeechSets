@@ -38,7 +38,7 @@ h1 {
 	font-size: 50px;
 }
 h2 {
-	font-size: 24px;
+	font-size: 30px;
 	/* text-align: center; */
 }
 
@@ -152,6 +152,11 @@ h2 {
 	position: relative;
 }
 
+#why-section p {
+	padding-left: 25px;
+	font-size: 25px;
+}
+
 #why-inner-box {
 	height: 470px;
 	padding: 20px 20px 20px 30px;
@@ -159,6 +164,8 @@ h2 {
 	position:relative;
 	border-radius: 49px;
 }
+
+
 
 #why-picture {
 	position:absolute;
@@ -196,15 +203,14 @@ h2 {
 .photo {
 	display: inline-block;
 	position:relative;
-	padding: 0 50px 0 50px;
+	padding: 50px 50px 50px 50px;
 }
 
 .about-section {
 	display: inline-block;
 	position:relative;
 	width: 700px;
-	padding-left:50px;
-	padding-right:50px;
+	padding: 50px 25px 0 25px;
 	text-align: left;
 	vertical-align: top;
 	line-height: normal;
