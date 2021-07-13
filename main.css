@@ -29,7 +29,7 @@ a {
 	}
 
 h1, h2, h3, h4, h5, h6 {
-	color: #000;
+	color: #160000;
 	font-weight: 400;
 }
 
@@ -70,7 +70,7 @@ h2 {
 	width: auto;
 	text-align: center;
 	font-size:18px;
-	
+	padding-left: 25px;
 }
 
 /* Nav */
@@ -80,6 +80,7 @@ h2 {
 	right: 0;
 	top: 0;
 	font-size: 14px;
+	padding-right: 25px;
 }
 
 	#nav ul {
@@ -225,4 +226,41 @@ h2 {
 
 #who-title {
 	padding: 150px 0 75px 150px;
+}
+
+/* Word Grid */
+
+.word-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
+  padding: 4rem;
+}
+
+.word-grid__word-card {
+  border: 2px solid #F1F1F1;
+  border-radius: 5px;
+  background-color: #FFF;
+  color: #160000;
+  text-align: center;
+}
+
+.word-grid__word-text {
+  padding: 0.5rem;
+}
+
+@media (max-width: 1200px) {
+  .word-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  html {
+    font-size: 57.5%;
+  }
+
+  .word-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
