@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <title>Speech Sets</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/Contact.css" />
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="header">
+        <header>
+            <!-- Logo -->
+            <div id="logo">
+                <a href="index.html"><img src="images/small-logo.png" style="width:50px;height:38px"></a>
+            </div>
+            <div id="logo">
+                <a href="index.html">
+                    <h1>Speech Sets</h1>
+                </a>
+            </div>
+
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="view-template.html">View Template</a></li>
+                    <li><a href="#">Create A Set</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="contact-us.html">Contact</a></li>
+                    <li><a href="#"></a>Sign Up/Log In</a></li>
+                </ul>
+            </nav>
+
+        </header>
+    </div>
+    <div class="container">
+
+        <div class="row">
+
+            <div class="column" style="padding-left: 50px;">
+                <form action="https://postmail.invotes.com/send" method="post" id="email_form">
+                    <h2>Contact Us</h2>
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name">
+                    <label for="subject">Subject</label>
+                    <input type="text" name="subject"  />
+                    <input type="hidden" name="access_token" value="3h7pk4rj7xpq1d8qag8yyu1e" />
+                    <label for="body">Body</label>
+                    <textarea id="body" name="text"></textarea>
+                    <center>
+                        <input id="submit" type="submit" value="Submit">
+                    </center>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</body>
+<script>
+    var submitButton = document.getElementById("submit");
+    var form = document.getElementById("email_form");
+    form.addEventListener("submit", function (e) {
+        setTimeout(function() {
+            submitButton.value = "Sending...";
+            submitButton.disabled = true;
+        }, 1);
+    });
+</script> 

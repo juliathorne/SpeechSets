@@ -107,7 +107,6 @@ h2 {
 #welcome {
 	text-align: center;
 	vertical-align: middle;
-	position: relative;
 	padding-top:80px;
 	height:400px;
 }
@@ -116,6 +115,7 @@ h2 {
 #welcome-image {
 	float:left;
 	width: 400px;
+	margin-left: 20%;
 }
 
 #welcome-text {
@@ -219,7 +219,7 @@ h2 {
 
 
 #about-us {
-	background-image: url(images/blue-blob.png);
+	background-image: url( ../images/blue-blob.png);
 	background-repeat: no-repeat;
 	background-size:700px
 }
