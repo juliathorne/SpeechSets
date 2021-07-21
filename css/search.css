@@ -1,0 +1,50 @@
+.search {
+  background-image: url(../images/Component\ 1.png);
+  background-color: #ffff;
+  width: 1500px;
+  height: 1200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  margin-left: 15%;
+}
+.search-form {
+  text-align: left;
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  color: black;
+  font-weight: bold;
+}
+
+.input-container {
+  width: 200%;
+  margin-bottom: 20px;
+}
+.input-field {
+  border: none;
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+.select-items div,
+.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+.search-form button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #fd7d54;
+  border: none;
+  color: white;
+  cursor: pointer;
+  width: 200px;
+  height: 50px;
+  font-size: 24px;
+}

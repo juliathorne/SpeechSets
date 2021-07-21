@@ -1,0 +1,64 @@
+
+  
+ 
+  h2 {
+    margin: 10px 0;
+    margin-bottom: 40px ;
+    padding-bottom: 5px;
+    width: 180px;
+    color: #78788c;
+    border-bottom: 3px solid #78788c;
+  }
+  /* Style inputs */
+  input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    margin-top: 6px;
+     margin-bottom: 16px;
+    resize: vertical;
+  }
+  
+  input[type=submit] {
+    font-size: 16px;
+    background-color: #71BBFF;
+    color: white;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #71BBFF;
+  }
+
+  /* Style the container/contact section */
+  .container {
+    max-width: 768px;
+    margin: 60px auto;
+    position: relative;
+  }
+  
+
+  .column {
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
+  }
