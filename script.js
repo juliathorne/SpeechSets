@@ -10,13 +10,14 @@ class Word {
 
 // Word array
 
-let wordList = [new Word("lorem"), new Word("ipsum"), new Word("dolor"), new Word("sit"), new Word("amet")];
+let wordList = []
 
 
 // Word Grid
 
 const wordGrid = document.querySelector(".word-grid");
-updateWordGrid();
+
+//updateWordGrid();
 
 function updateWordGrid() {
     resetGrid();
@@ -45,3 +46,12 @@ function createWordCard(word) {
     wordGrid.appendChild(wordCard);
 }
 
+fetch('http://localhost:3000/?word=gardening&sound=s&syll=2&max=20')
+    .then(response => response.json())
+    .then(function(data) {
+        for (let word of data) {
+            wordList.push(new Word(word.word, word.tags.ipa_pron, word.numSyllables, word.tags.f, word.score))
+        }
+        console.log(wordList);
+        updateWordGrid();
+    });
