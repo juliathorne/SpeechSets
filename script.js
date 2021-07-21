@@ -46,7 +46,7 @@ function createWordCard(word) {
     wordGrid.appendChild(wordCard);
 }
 
-fetch('http://localhost:3000/?word=gardening&sound=s&syll=2&max=20')
+fetch('http://localhost:3000/?word=car&sound=&syll=2&max=20')
     .then(response => response.json())
     .then(function(data) {
         for (let word of data) {
