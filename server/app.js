@@ -5,11 +5,24 @@ const port = 3000;
 
 var app = express();
 
-app.get('/*', cors(), async (req, res) => {
-  let word = req.query.word;
-  let sound = req.query.sound;
-  let syll = req.query.syll;
-  let max = req.query.max;
+var search;
+let word;
+let sound;
+let syll;
+let max;
+let wordArray = [];
+
+app.get('/search/*', cors(), async (req, res) => {
+  search = req.query;
+  word = req.query.word;
+  sound = req.query.sound;
+  syll = req.query.syll;
+  max = req.query.max;
+  wordArray = [];
+  res.end();
+}) 
+
+app.get('/search-results.html', cors(), async (req, res) => {
   let wordArray = [];
   getRelatedWords(word, wordArray).then(function(result) {
     wordArray = returnWordList(wordArray, sound, syll, max);

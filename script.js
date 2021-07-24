@@ -46,12 +46,44 @@ function createWordCard(word) {
     wordGrid.appendChild(wordCard);
 }
 
-fetch('http://localhost:3000/?word=car&sound=&syll=2&max=20')
+let randomWords = ["gardening", "car repair", "cooking", "crafts", "television", "movies", "computers", "family", "sports", "travel"];
+
+if (document.getElementById("search-click") != null) {
+
+    const searchForm = document.getElementById("search-click");
+    searchForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        let word = searchForm.elements["word"].value;
+        if (word === "" || word === null) {
+            word = randomWords[Math.floor(Math.random() * randomWords.length)];
+        }
+        let sound = searchForm.elements["sound"].value;
+        let syll = searchForm.elements["syll"].value;
+        let max = searchForm.elements["max"].value;
+        
+        searchWords(`?word=${word}&sound=${sound}&syll=${syll}&max=${max}`);
+    })
+}
+
+async function getWords() {
+    fetch(`http://localhost:3000/search-results.html`)
     .then(response => response.json())
     .then(function(data) {
+        wordList = [];
         for (let word of data) {
             wordList.push(new Word(word.word, word.tags.ipa_pron, word.numSyllables, word.tags.f, word.score))
         }
-        console.log(wordList);
         updateWordGrid();
     });
+}
+
+async function searchWords(qs) {
+    fetch(`http://localhost:3000/search/${qs}`)
+    .then(function() {
+        window.location.href = '/search-results.html'
+    });
+}
+
+if (wordGrid != null) {
+    getWords();
+}
