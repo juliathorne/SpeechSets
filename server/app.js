@@ -19,13 +19,15 @@ app.get('/search/*', cors(), async (req, res) => {
   syll = req.query.syll;
   max = req.query.max;
   wordArray = [];
-  res.end();
+  res.send(word + sound + syll + max);
 }) 
 
-app.get('/search-results.html', cors(), async (req, res) => {
+app.get('/search-results', cors(), async (req, res) => {
   let wordArray = [];
+  console.log(word + sound + syll + max);
   getRelatedWords(word, wordArray).then(function(result) {
     wordArray = returnWordList(wordArray, sound, syll, max);
+    console.log(wordArray);
     res.json(wordArray);
   })
 })
@@ -66,13 +68,13 @@ function returnWordList(relatedWords, sound, syllables, max) {
         break;
       }
 
-      if (sound != null && word.tags.ipa_pron != null) {
+      if (sound != "" && word.tags.ipa_pron != "") {
         if (!word.tags.ipa_pron.includes(sound)) {
           continue;
         }
       }
 
-      if (syllables != null && word.numSyllables != null) {
+      if (syllables != "" && word.numSyllables != "") {
         if (word.numSyllables != syllables) {
           continue;
         }

@@ -66,7 +66,7 @@ if (document.getElementById("search-click") != null) {
 }
 
 async function getWords() {
-    fetch(`http://localhost:3000/search-results.html`)
+    fetch(`http://localhost:3000/search-results`)
     .then(response => response.json())
     .then(function(data) {
         wordList = [];
@@ -79,11 +79,13 @@ async function getWords() {
 
 async function searchWords(qs) {
     fetch(`http://localhost:3000/search/${qs}`)
-    .then(function() {
+    .then(async function(response) {
+        console.log(await response.text())
         window.location.href = '/search-results.html'
     });
 }
 
 if (wordGrid != null) {
     getWords();
+    console.log(wordList);
 }

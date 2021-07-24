@@ -41,10 +41,15 @@
 
 	<div class="search">
 		<div class="search-form">
-			<form id="search-click" style="max-width:1000px;margin:auto">
+			<form id="search-click" action="/search-results.html" style="max-width:1000px;margin:auto">
 				<div class="input-container">
 					<label>Topic
 						<input class="input-field" type="text" name="word"></label>
+				</div>
+
+				<div class="input-container">
+					<label>Speech Sound
+						<input class="input-field" type="text" name="sound"></label>
 				</div>
 
 				<div class="input-container">
@@ -52,10 +57,7 @@
 						<input class="input-field" type="text" name="syll"></label>
 				</div>
 
-				<div class="input-container">
-					<label>Speech Sound
-						<input class="input-field" type="text" name="sound"></label>
-				</div>
+				
 				<div class="input-container">
 					<label>How Many Items
 						<select class="input-field" name="max">
@@ -67,7 +69,7 @@
 						</select></label>
 				</div>
 				<div class="input-container">
-					<center><button  type="submit">submit</button></center>
+					<center><button type="submit">submit</button></center>
 					
 				</div>
 			</form>
@@ -77,3 +79,4 @@
 </body>
 
 </html>
+<script src="script.js"></script>
