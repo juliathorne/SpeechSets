@@ -238,7 +238,7 @@ h2 {
 }
 
 .word-grid__word-card {
-  border: 2px solid #F1F1F1;
+  border: 2px solid #E5E5E5;
   border-radius: 5px;
   background-color: #FFF;
   color: #160000;
@@ -246,7 +246,18 @@ h2 {
 }
 
 .word-grid__word-text {
-  padding: 0.5rem;
+  padding: 0 0.5rem 1rem 0.5rem;
+  vertical-align:middle;
+  margin-top:0;
+}
+
+.js-remove-button {
+	background-color: #fff;
+	border: 2px solid #E5E5E5;
+	border-radius: 5px;
+	display:inline;
+	margin-left:85%;
+	color: #E5E5E5;
 }
 
 @media (max-width: 1200px) {

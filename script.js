@@ -8,10 +8,11 @@ class Word {
     }
 }
 
-// Word array
+// Word arrays
 
 let wordList = []
-
+let randomWords = ["gardening", "car repair", "cooking", "crafts", "television", "movies", "computers", "family", "sports", "travel"];
+let listSize;
 
 // Word Grid
 
@@ -21,8 +22,11 @@ const wordGrid = document.querySelector(".word-grid");
 
 function updateWordGrid() {
     resetGrid();
-    for (let word of wordList) {
-        createWordCard(word);
+    for (let i = 0; i < listSize - 10; i++) {
+        if (wordList[i] === undefined) {
+            break;
+        }
+        createWordCard(wordList[i]);
     }
 }
 
@@ -39,15 +43,35 @@ function createWordCard(word) {
     text.classList.add("word-grid__word-text");
     removeButton.classList.add("button");
     removeButton.classList.add("js-remove-button");
+    removeButton.onclick = removeWord;
 
     text.textContent = word.wordText;
+    removeButton.textContent = 'x';
     
+    wordCard.appendChild(removeButton);
     wordCard.appendChild(text);
     wordGrid.appendChild(wordCard);
 }
 
-let randomWords = ["gardening", "car repair", "cooking", "crafts", "television", "movies", "computers", "family", "sports", "travel"];
+let removeWord = function(e) {
+    let targetWord = e.target.parentNode.childNodes[1].textContent;
+    console.log(targetWord);
+    let ind = getIndex(targetWord);
+    console.log(ind);
+    wordList.splice(ind, 1);
+    console.log(wordList);
+    updateWordGrid();
+}
 
+function getIndex(targetWord) {
+    for (let i = 0; i < wordList.length; i++) {
+        if (wordList[i].wordText === targetWord) {
+            return i;
+        }
+    }
+}
+
+/* Search on search page */
 if (document.getElementById("search-click") != null) {
 
     const searchForm = document.getElementById("search-click");
@@ -72,7 +96,8 @@ async function getWords() {
         wordList = [];
         for (let word of data) {
             wordList.push(new Word(word.word, word.tags.ipa_pron, word.numSyllables, word.tags.f, word.score))
-        }
+        };
+        listSize = wordList.length;
         updateWordGrid();
     });
 }

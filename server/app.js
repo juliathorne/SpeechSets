@@ -12,6 +12,7 @@ let syll;
 let max;
 let wordArray = [];
 
+/* Set search variables based on inputs */
 app.get('/search/*', cors(), async (req, res) => {
   search = req.query;
   word = req.query.word;
@@ -22,17 +23,18 @@ app.get('/search/*', cors(), async (req, res) => {
   res.send(word + sound + syll + max);
 }) 
 
+/* Return filtered word list for search results */
 app.get('/search-results', cors(), async (req, res) => {
   let wordArray = [];
   console.log(word + sound + syll + max);
   getRelatedWords(word, wordArray).then(function(result) {
     wordArray = returnWordList(wordArray, sound, syll, max);
-    console.log(wordArray);
+    // console.log(wordArray);
     res.json(wordArray);
   })
 })
 
-
+/* Gets basic list of related words */
 async function getRelatedWords(word, wordArray) {
 
   let response = await datamuse.request('words?ml=' + word + '&md=srf&ipa=1&max=150');
@@ -41,6 +43,7 @@ async function getRelatedWords(word, wordArray) {
   }
 }
 
+/* Returns word list filtered based on inputs */
 function returnWordList(relatedWords, sound, syllables, max) {
 
     count = 0;
@@ -56,15 +59,15 @@ function returnWordList(relatedWords, sound, syllables, max) {
       tags = result;
       word.tags = tags;
     }
-
-    // relatedWords.sort(function(a, b) {
-    //     return parseFloat(b.tags.f) - parseFloat(a.tags.f);
-    // })
     
+    // return 10 words beyond max so that user can delete/replace words
+    let maxPlus = parseInt(max) + 10;
+    console.log(maxPlus);
+
     // filter based on inputs
     for (let word of relatedWords) {
-
-      if (count >= max) {
+      
+      if (count >= maxPlus) {
         break;
       }
 
@@ -84,20 +87,10 @@ function returnWordList(relatedWords, sound, syllables, max) {
       count++;
 
     }
-
+    // console.log(modifiedList);
     return modifiedList;
 
 }
-
-// let myArray = []
-// getRelatedWords('flower', myArray).then(function(result) {
-//   console.log(returnWordList(myArray, null, null, 20));
-// });
-
-// const axios = require('axios');
-// const res = axios.get('http://localhost:5500/?word=gardening&sound=s&syll=null&max=10');
-
-// res.data;
 
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`)
