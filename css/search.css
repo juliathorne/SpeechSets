@@ -1,26 +1,26 @@
 .search {
   background-image: url(../images/Component\ 1.png);
   background-color: #ffff;
-  width: 1500px;
-  height: 1200px;
+  width: 1000px;
+  height: 900px;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size:contain;
   position: fixed;
-  margin-left: 15%;
+  margin-left: 20%;
 }
 .search-form {
   text-align: left;
   position: absolute;
-  top: 20%;
-  left: 20%;
+  top: 15%;
+  left: 16%;
   color: black;
   font-weight: bold;
 }
 
 .input-container {
-  width: 200%;
-  margin-bottom: 20px;
+  width: 150%;
+  margin-bottom: 15px;
 }
 .input-field {
   border: none;

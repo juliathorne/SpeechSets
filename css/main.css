@@ -24,10 +24,6 @@ a {
 	text-decoration: none;
 }
 
-	a:hover {
-		text-decoration: underline;
-	}
-
 h1, h2, h3, h4, h5, h6 {
 	color: #160000;
 	font-weight: 400;
@@ -115,7 +111,7 @@ h2 {
 #welcome-image {
 	float:left;
 	width: 400px;
-	margin-left: 20%;
+	margin-left: 10%;
 }
 
 #welcome-text {
@@ -141,6 +137,7 @@ h2 {
 	background-color: #FD7D54;
 	border-radius: 6px;
 	padding-top:10px;
+	font-size:25px;
 }
 
 /* Why Section */
@@ -166,12 +163,12 @@ h2 {
 	border-radius: 49px;
 }
 
-
-
 #why-picture {
 	position:absolute;
-	z-index: 9;
-	
+	max-width: 100%;
+	z-index:9;
+	left:75%;
+	top:375px;
 }
 
 /* How Section */
@@ -182,6 +179,10 @@ h2 {
 	padding-top: 86px;
 	vertical-align: middle;
 	position: relative;
+}
+
+#how-section p {
+	font-size: 25px;
 }
 
 #how-inner-box1 {
@@ -234,7 +235,7 @@ h2 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 2rem;
-  padding: 4rem;
+  padding: 2rem 4rem 4rem 4rem;
 }
 
 .word-grid__word-card {
@@ -258,6 +259,83 @@ h2 {
 	display:inline;
 	margin-left:85%;
 	color: #E5E5E5;
+}
+
+#download-button {
+	color:#fff;
+	position:relative;
+	display: block;
+	width: 200px;
+	height: 50px;
+	background-color: #FD7D54;
+	border-radius: 6px;
+	border:none;
+	font-size:25px;
+	text-align: center;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:30px;
+}
+
+#new-set-button {
+	color:#fff;
+	position:relative;
+	display:block;
+	width: 200px;
+	height: 50px;
+	background-color: #349BFA;
+	border-radius: 6px;
+	border:none;
+	font-size:25px;
+	text-align: center;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:50px;
+}
+
+#get-started-button {
+	color:#fff;
+	position:relative;
+	display:block;
+	width: 200px;
+	height: 50px;
+	background-color: #71BBFF;
+	border-radius: 6px;
+	border:none;
+	font-size:25px;
+	text-align: center;
+	margin-left: 450px;
+	margin-right:auto;
+	margin-bottom:50px;
+	z-index: 11;
+}
+
+.card-view-button {
+	display:grid;
+	grid-template-columns: repeat(2, 50px);
+	grid-gap: 2px;
+	margin-left: 85%;
+	width:fit-content;
+	vertical-align: middle;
+}
+
+#card-view {
+	background-image: url('../images/card1.png');
+	background-size:contain;
+	background-repeat: no-repeat;
+	background-color: white;
+	border: none;
+	height:38px;
+	margin-top:5px;
+}
+
+#grid-view {
+	background-image:url("../images/card2.png");
+	background-size:cover;
+	background-color: white;
+	border: none;
+	height:38px;
+	background-repeat: no-repeat
 }
 
 @media (max-width: 1200px) {

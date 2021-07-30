@@ -1,16 +1,23 @@
 const datamuse = require('datamuse');
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
+const PDFdocument = require('pdfkit');
+const fs = require('fs');
 const port = 3000;
 
 var app = express();
+app.use(express.json());
+app.use(cors());
 
+/* Storage for user searches */
 var search;
-let word;
-let sound;
-let syll;
-let max;
-let wordArray = [];
+var word;
+var sound;
+var syll;
+var max;
+var wordArray = [];
+var userList = [];
 
 /* Set search variables based on inputs */
 app.get('/search/*', cors(), async (req, res) => {
@@ -25,13 +32,41 @@ app.get('/search/*', cors(), async (req, res) => {
 
 /* Return filtered word list for search results */
 app.get('/search-results', cors(), async (req, res) => {
-  let wordArray = [];
-  console.log(word + sound + syll + max);
+  wordArray = [];
+  // console.log(word + sound + syll + max);
   getRelatedWords(word, wordArray).then(function(result) {
     wordArray = returnWordList(wordArray, sound, syll, max);
     // console.log(wordArray);
     res.json(wordArray);
   })
+})
+
+/* Save new modified word list from client to wordArray */
+app.post('/post-list', cors(), async (req, res) => {
+  userList = req.body;
+  //console.log(userList);
+  res.json(userList);
+})
+
+/* Download PDF of word list */
+app.get('/download-results', cors(), async (req, res) => {
+  var pdfDoc = new PDFdocument;
+  var stream = fs.createWriteStream('SpeechSet.pdf')
+  pdfDoc.pipe(stream);
+  pdfDoc.fontSize(20);
+  pdfDoc.lineGap(20);
+  for (let word of userList) {
+    pdfDoc.text(word.wordText);
+  }
+  
+  // pdfDoc.lineGap(20);
+  pdfDoc.end();
+  stream.on("close", () => {
+    let file = path.resolve('SpeechSet.pdf');
+    res.download(file, 'SpeechSet.pdf', function(err){
+    })
+  })
+  
 })
 
 /* Gets basic list of related words */
@@ -62,7 +97,7 @@ function returnWordList(relatedWords, sound, syllables, max) {
     
     // return 10 words beyond max so that user can delete/replace words
     let maxPlus = parseInt(max) + 10;
-    console.log(maxPlus);
+    // console.log(maxPlus);
 
     // filter based on inputs
     for (let word of relatedWords) {
