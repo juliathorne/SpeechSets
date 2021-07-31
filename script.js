@@ -11,7 +11,7 @@ class Word {
 /* Word Storage */
 
 let wordList = []
-let randomWords = ["gardening", "car repair", "cooking", "crafts", "television", "movies", "computers", "family", "sports", "travel"];
+let randomWords = ["gardening", "car repair", "cooking", "crafts", "television", "movies", "computers", "family", "sports", "travel", "birding", "think", "speak"];
 let listSize;
 
 /* Word Grid */
@@ -92,6 +92,7 @@ if (document.getElementById("search-click") != null) {
     searchForm.addEventListener('submit', function (event) {
         event.preventDefault();
         let word = searchForm.elements["word"].value;
+        // use random word if topic not specified
         if (word === "" || word === null) {
             word = randomWords[Math.floor(Math.random() * randomWords.length)];
         }
