@@ -28,7 +28,6 @@ app.get('/search/*', cors(), async (req, res) => {
   syll = req.query.syll;
   max = req.query.max;
   wordArray = [];
-  console.log(word);
   res.send(word + sound + syll + max);
 }) 
 
